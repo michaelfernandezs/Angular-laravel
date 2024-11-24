@@ -12,22 +12,22 @@ export class ExpenseService {
     private http:HttpClient
   ) { }
   getExpenses():Observable<Expense[]>{
-    return this.http.get<Expense[]>(`${this.API_URL}`)
+    return this.http.get<Expense[]>(`${this.API_URL}/expenses`)
   }
 
   getExpense(id: number): Observable<Expense>{
-    return this.http.get<Expense>(`${this.API_URL}/${id}`)
+    return this.http.get<Expense>(`${this.API_URL}/expenses${id}`)
   }
 
   CreateExpense(data: Expense): Observable<Expense>{
-    return this.http.post<Expense>(`${this.API_URL}`, data)
+    return this.http.post<Expense>(`${this.API_URL}/expenses`, data)
   }
 
   updateExpense(id: number, data: Expense): Observable<Expense>{
-    return this.http.put<Expense>(`${this.API_URL}/${id}`, data)
+    return this.http.put<Expense>(`${this.API_URL}/expenses/${id}`, data)
   }
 
   deleteExpense(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.API_URL}/${id}`)
+    return this.http.delete<any>(`${this.API_URL}/expenses/${id}`)
   }
 }
